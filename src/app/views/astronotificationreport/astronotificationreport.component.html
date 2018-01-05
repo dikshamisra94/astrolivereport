@@ -1,0 +1,77 @@
+<div id="loader-wrapper" *ngIf="loading">
+    <div id="loader"></div>
+</div>
+<div class="alertDiv">
+  <app-alert></app-alert>
+</div>
+
+<div class="animated fadeIn" > 
+    
+  <div class="row" >
+     
+    <div class="col-sm-6 col-md-3">
+        <div class="form-group ">
+            <label class="col-form-label" for="appendedInputButton">Date</label>
+            <div class="controls">
+              <div class="input-group">
+                <span class="input-group-addon" (click)="dpStart.toggle()"><i class="fa fa-calendar"></i></span>
+                <input class="form-control"  type="text"
+                class="form-control"
+                [maxDate]="maxDateStart"               
+                #dpStart="bsDatepicker"                
+                value = "{{bsValueStrStart}}" 
+                bsDatepicker [(bsValue)]="bsValueStart" (bsValueChange) = "onChangeStartdate()" readonly>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+
+      <div class="row">
+        
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <i class="fa fa-align-justify"></i> Astro Notification Report
+              <!-- <span class="pull-right linkHover" data-toggle="modal" (click) = "onAddPackage()" >Add New Package</span> -->
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">  
+              <table class="table table-striped textCenterTable">
+                <thead>
+                  <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Read Status</th>
+                    <th>Call Status</th>                                     
+                  </tr>
+                </thead>
+                <tbody *ngIf = "(astronotificationReportLists.length) !== 0">
+                  <tr *ngFor="let astronotificationReportList of astronotificationReportLists">
+                    
+                    <td><b>{{astronotificationReportList?.name}}</b></td>
+                    <td>{{astronotificationReportList?.email}}</td> 
+                    <td>{{astronotificationReportList?.contact}}</td> 
+                    <td>{{astronotificationReportList?.readStatus}}</td> 
+                    <td>{{astronotificationReportList?.isCall}}</td> 
+                  </tr>
+                </tbody>
+                <tbody  *ngIf = "(astronotificationReportLists.length) === 0">
+                <tr>
+                  <td colspan="5">No record found !</td>
+                </tr>
+                </tbody>
+              </table> 
+             </div>
+             
+            </div>
+          </div>
+        </div>
+        <!--/.col-->
+      </div>
+
+
+  </div>
+  
