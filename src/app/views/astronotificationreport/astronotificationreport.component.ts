@@ -1,4 +1,5 @@
 import { Astronotificationreport } from './../../shared/model/astronotification-data.model';
+import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 import { AstronotificationService } from './../../services/astronotification.service';
 import { AlertService } from './../../services/alert.service';
 
@@ -42,7 +43,21 @@ export class AstronotificationreportComponent implements OnInit {
       
     //  this.getAstronotificationList(this.bsDateAPIStrStart);      
     }
-    
+     download() {
+    //   this.AstronotificationService.getAstroNotificationReport(startDate).
+    //   .subscribe(data => {
+    //     this.allItems = data.result.users;  
+        var options = { 
+            fieldSeparator: ',',
+            quoteStrings: '"',
+            decimalseparator: '.',
+            showLabels: true, 
+            showTitle: true,
+            headers: ['Name','Email','Contact','Read Status','Call Status'] 
+        };
+        new Angular2Csv(this.astronotificationReportLists, 'Notification Report',options);
+    //   }); 
+     }
     getAstronotificationList(startDate:string){
       this.loading = true;
      this.astronotificationService.getAstroNotificationReport(startDate).subscribe(      
