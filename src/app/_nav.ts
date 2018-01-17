@@ -130,6 +130,11 @@ export const navigation = [
   name: 'Notification Report',
   url: '/notificationreport',
   icon: 'icon-pie-chart'
+},
+{
+  name: 'Average Call Time Report',
+  url: '/averagecallreport',
+  icon: 'icon-pie-chart'
 }
 // {
 //   divider: true

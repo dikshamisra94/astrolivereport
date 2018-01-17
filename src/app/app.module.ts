@@ -1,6 +1,7 @@
 import { AstroforcelogoutService } from './services/astroforcelogout.service';
 import { AstroconsolidatedService } from './services/astroconsolidated.service';
 import { AstronotificationService } from './services/astronotification.service';
+import { AveragecallService } from './services/averagecall.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component';
 import { DatePipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {DataTableModule} from "angular2-datatable";
 
 // Import containers
 import {
@@ -85,7 +87,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ModalModule.forRoot(),
     ChartsModule,
     HttpModule,
-  
+    DataTableModule
   ],
   declarations: [
     AppComponent,
@@ -105,6 +107,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   AstroconsolidatedService,
   AstroforcelogoutService,
   AstronotificationService,
+  AveragecallService
 ],
   
   bootstrap: [ AppComponent ]

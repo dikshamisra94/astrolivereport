@@ -63,6 +63,10 @@ export const routes: Routes = [
       {
         path: 'notificationreport',
         loadChildren: './views/astronotificationreport/astronotificationreport.module#AstronotificationreportModule',
+      },
+      {
+        path: 'averagecallreport',
+        loadChildren: './views/averagecallreport/averagecallreport.module#AveragecallreportModule',
       }
       // {
       //   path: 'categories',
